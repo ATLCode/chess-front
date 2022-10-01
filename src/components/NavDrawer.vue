@@ -2,8 +2,7 @@
   <v-navigation-drawer
     v-model="drawer"
     :rail="rail"
-    permanent
-    @click="rail = false"
+    expand-on-hover
     rail-width="56"
     color="primaryflat"
   >

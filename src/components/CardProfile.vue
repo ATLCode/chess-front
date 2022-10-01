@@ -54,6 +54,7 @@ const color = ref("BOTH");
   justify-content: center;
   padding: 1rem;
   gap: 1rem;
+  color: rgb(var(--v-theme-primary));
 }
 .header {
   display: flex;
@@ -72,6 +73,7 @@ const color = ref("BOTH");
   height: 100%;
   width: 100%;
   background-color: rgb(var(--v-theme-primarybg));
+  color: rgb(var(--v-theme-primary));
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -82,5 +84,6 @@ const color = ref("BOTH");
 }
 .tactive {
   background-color: rgb(var(--v-theme-primarylight));
+  color: white;
 }
 </style>
