@@ -14,47 +14,17 @@
             pcBlack: item.playercolor === 'black',
           }"
         ></div>
-        <div class="rest">
-          <div class="date-format">
-            <div>{{ item.date }}</div>
-            <div>{{ item.timecontrol }}</div>
-          </div>
-          <v-divider vertical></v-divider>
-          <div class="players">
-            <div class="player-info">
-              {{ item.playername }}({{ item.playerrating }})
-            </div>
-            <div class="player-info">
-              {{ item.opponentname }}({{ item.opponentrating }})
-            </div>
-          </div>
-          <v-divider vertical></v-divider>
-          <div>
-            <div>{{ item.openingname }}</div>
-            <div>{{ item.openingvariation }}</div>
-          </div>
-
-          <v-divider vertical class="moves"></v-divider>
-          <div class="m1">d4</div>
-          <div class="m2">d5</div>
-          <div>Nc3</div>
-          <div>Nf6</div>
-          <div>Nf3</div>
-          <div>Bf5</div>
-          <div>Ne5</div>
-          <div>Nbd7</div>
-          <div>Nxd7</div>
-          <div>Qxd7</div>
-          <div>g3</div>
-          <div>O-O-O</div>
-          <div>e3</div>
-          <div>g6</div>
-          <v-divider vertical></v-divider>
-          <div>1.2</div>
-          <v-divider vertical></v-divider>
-          <div>105</div>
-          <v-divider vertical></v-divider>
-          <div>Resign</div>
+        <div class="date-format">
+          <div>{{ item.date }}</div>
+          <div>{{ item.mode }}</div>
+        </div>
+        <div class="names">
+          <div>{{ item.playername }}</div>
+          <div>{{ item.opponentname }}</div>
+        </div>
+        <div class="elos">
+          <div>{{ item.playerrating }}</div>
+          <div>{{ item.opponentrating }}</div>
         </div>
       </div>
     </v-list-item>
@@ -64,15 +34,19 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
+const listStyle = "asd"
+
 const items = ref([
   {
     playercolor: "black",
     date: "29/09/2022",
     timecontrol: "5+5",
+    mode: "Blitz",
     playername: "ATL",
     playerrating: "957",
     opponentname: "Hanivaz",
     opponentrating: "1134",
+    eco: "",
     openingname: "Queen's Gambit Accepted",
     openingvariation: "Central,Variation, McDonnel Defense",
     move1: "d4",
@@ -90,18 +64,24 @@ const items = ref([
     move13: "d4",
     move14: "d4",
     openingscore: "1.5",
+    inaccuracies: "1",
+    mistakes: "2",
+    blunders: "3",
     acl: "102",
-    result: "draw",
-    ending: "Draw",
+    result: "win",
+    ending: "Win",
+    webiste: "lichess",
   },
   {
     playercolor: "white",
     date: "28/09/2022",
     timecontrol: "5+5",
+    mode: "Blitz",
     playername: "ATL",
     playerrating: "957",
     opponentname: "Verkku",
     opponentrating: "854",
+    eco: "",
     openingname: "French Defense",
     openingvariation: "Steinitz Attack",
     move1: "d4",
@@ -119,9 +99,13 @@ const items = ref([
     move13: "d4",
     move14: "d4",
     openingscore: "1.5",
+    inaccuracies: "4",
+    mistakes: "5",
+    blunders: "6",
     acl: "102",
     result: "draw",
     ending: "Draw",
+    webiste: "chess.com",
   },
   { text: "Conversions" },
   { text: "Real-Time" },
@@ -161,7 +145,8 @@ const items = ref([
 }
 .list-item {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 20px 1fr 1fr 1fr;
+
 }
 .pcBlack {
   background-color: rgb(var(--v-theme-chessblack));
@@ -174,18 +159,7 @@ const items = ref([
   height: 4rem;
 }
 
-.rest {
-  background-color: rgb(var(--v-theme-draw));
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  gap: 0.5rem;
-  padding: 10px;
-}
-.date-format {
+.date-format .names .elos {
   display: flex;
   flex-direction: column;
   justify-content: center;

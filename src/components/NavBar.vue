@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="primaryflat" height="56">
+  <v-app-bar color="accent" height="56">
     <template v-slot:image> </template>
 
     <v-app-bar-title>Chess Companion</v-app-bar-title>

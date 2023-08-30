@@ -4,7 +4,7 @@
     :rail="rail"
     expand-on-hover
     rail-width="56"
-    color="primaryflat"
+    color="accent"
   >
     <v-list density="compact" nav>
       <v-list-item
